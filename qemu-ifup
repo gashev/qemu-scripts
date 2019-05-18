@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Executing qemu-ifup."
+echo "Bringing up $1 for bridged mode..."
+ip link set $1 up promisc on
+echo "Adding $1 to internal..."
+brctl addif virbr0 $1
+sleep 2

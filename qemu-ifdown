@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Executing qemu-ifdown."
+ip link set $1 down
+brctl delif virbr0 $1
+ip link delete dev $1
+
